@@ -7538,7 +7538,16 @@
         <xs:element ref="docbook:phrase"/>
         <xs:element ref="docbook:replaceable"/>
       </xs:choice>
-      <xs:attribute name="role"/>
+      <xs:attribute name="role" default="value">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="value"/>
+            <xs:enumeration value="reference"/>
+            <xs:enumeration value="vararglist"/>
+            <xs:enumeration value="reference_vararglist"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attributeGroup ref="docbook:db.common.attributes"/>
       <xs:attributeGroup ref="docbook:db.common.linking.attributes"/>
       <xs:attribute name="class">
